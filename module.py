@@ -1,9 +1,13 @@
 import view
+from datetime import datetime
+import uuid
 
 
 def add_cont(new_name, text):
     data = open('Notebook.txt', 'a')
-    data.write(new_name + "\n" + text + "\n")
+    id = str(uuid.uuid4())
+    date = datetime.now().strftime('%d.%m.%Y %H:%M')
+    data.write("(" + id + ") " + "|" + new_name + "| " + text + " " + "[" + date + "]")
     data.close()
 
 
